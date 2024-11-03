@@ -1,6 +1,8 @@
-import pathlib
-from zipfile import ZipFile
-pathlib.Path(__file__).parent.resolve()
+import getIsidePresentinZipfil
 
-with ZipFile('src/croco-blitz-source.zip','r') as filezip:
-    print(filezip.namelist())
+
+
+if __name__ == '__main__':
+    result: list = getIsidePresentinZipfil.open_zip("src\croco-blitz-source.zip")
+
+    print(result)
