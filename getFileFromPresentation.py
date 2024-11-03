@@ -4,7 +4,6 @@
 import zipfile
 from pptx import Presentation
 
-
 prs = Presentation('src\Zimnyaya_igra_1.pptx')
 for slide in prs.slides:
     for shape in slide.shapes:
