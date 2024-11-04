@@ -2,10 +2,8 @@
 Напишите тест, который проверяет, что в строке находится всего одно слово.'''
 from pptx import Presentation
 
-
 def only_one_word(line: str) -> bool:
-    return ' ' not in line
-
+    return ' ' not in line and line.isalpha()
 
 words_list = list('')
 with open('words.txt', 'w', encoding="utf8") as file:
