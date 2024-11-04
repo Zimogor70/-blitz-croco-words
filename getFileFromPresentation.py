@@ -4,10 +4,7 @@ from pptx import Presentation
 
 
 def only_one_word(line: str) -> bool:
-    line.strip()
-    if ' ' in line:
-        return False
-    return True
+    return ' ' not in line
 
 
 words_list = list('')
@@ -18,6 +15,6 @@ with open('words.txt', 'w', encoding="utf8") as file:
         for shape in slide.shapes:
             if not shape.has_text_frame:
                 continue
-            if only_one_word(shape.text_frame.text):
-                words_list.append(shape.text_frame.text+'\n')
+            if only_one_word(shape.text.strip()):
+                words_list.append(shape.text.strip() + '\n')
     file.writelines(words_list)
