@@ -1,7 +1,5 @@
-'''
-Откройте файл презентации в программе с помощью объекта Presentation библиотеки pptx
-'''
-import zipfile
+'''Задача 2024.10.25.03
+Поменяйте код так, чтобы он выводил текст каждого шэйпа на экран.'''
 from pptx import Presentation # подключаем класс Перс... из пптикс библиотеки
 
 # получаем ссылку на файл с презентацией
@@ -14,4 +12,4 @@ for slide in prs.slides:
         if not shape.has_text_frame:
             continue
         # выводим в консоль содержимое фрейма
-        print(shape.text_frame)
+        print(shape.text_frame.text)
