@@ -1,15 +1,23 @@
-'''Задача 2024.10.30.01
-После выполнения задачи выше, сохраните полученный список слов в файл words.txt.'''
+'''Задача 2024.10.30.02
+Напишите тест, который проверяет, что в строке находится всего одно слово.'''
 from pptx import Presentation
 
+
+def only_one_word(line: str) -> bool:
+    line.strip()
+    if ' ' in line:
+        return False
+    return True
+
+
 words_list = list('')
-with open('words.txt','w',encoding="utf8") as file:
+with open('words.txt', 'w', encoding="utf8") as file:
     file.write('')
-    prs = Presentation('src\Zimnyaya_igra_1.pptx')
+    prs = Presentation('src\Osennyaya_igra_3.pptx')
     for slide in prs.slides:
         for shape in slide.shapes:
             if not shape.has_text_frame:
                 continue
-            words_list.append(shape.text_frame.text)
+            if only_one_word(shape.text_frame.text):
+                words_list.append(shape.text_frame.text+'\n')
     file.writelines(words_list)
-
