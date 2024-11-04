@@ -1,4 +1,4 @@
-from getFileFromPresentation import only_one_word
+from main import only_one_word
 
 
 def test_only_one_word():
