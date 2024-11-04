@@ -6,7 +6,7 @@ def only_one_word(line: str) -> bool:
 
 
 def pars_and_save(ls_files):
-    words_list = list('')
+    words_set = set()
     with open('words.txt', 'w', encoding="utf8") as file:
         file.write('')
         for name in ls_files:
@@ -16,5 +16,5 @@ def pars_and_save(ls_files):
                     if not shape.has_text_frame:
                         continue
                     if only_one_word(shape.text.strip()):
-                        words_list.append(shape.text.strip() + '\n')
-            file.writelines(words_list)
+                        words_set.add(shape.text.strip() + '\n')
+            file.writelines(words_set)
