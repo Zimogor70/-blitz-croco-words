@@ -1,8 +1,16 @@
 from pptx import Presentation
+from check_spell import check_spell
 
 
 def only_one_word(line: str) -> bool:
     return ' ' not in line and line.isalpha()
+
+
+def send_to_check(lst: set) -> list:
+    ret_lst = list()
+    for elem in lst:
+        ret_lst.append(check_spell(elem))
+    return ret_lst
 
 
 def pars_and_save(ls_files):
@@ -17,4 +25,4 @@ def pars_and_save(ls_files):
                         continue
                     if only_one_word(shape.text.strip()):
                         words_set.add(shape.text.strip() + '\n')
-            file.writelines(words_set)
+            file.writelines(send_to_check(words_set))
