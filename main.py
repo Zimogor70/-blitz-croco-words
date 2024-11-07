@@ -1,19 +1,12 @@
-'''Задача 2024.11.04.06
-Дополните код проекта blitz-croco-words функцией, которая на вход получает список слов,
-отправляет их в Yandex Speller, и возвращает список проверенных и отредактированных слов.
-Вставьте использование этой функции между парсингом презентаций и сохранением в words.txt'''
+'''Задача 2024.11.06.02
+Учитывая даты сохраните в файл words.txt слова в формате:
+слово:дата'''
 from extract import extr_zip
-from parsave import pars_and_save
-from check_spell import check_spell
+from parsave import pars, save, send_to_check
 
 
 def main():
-    pars_and_save(extr_zip('src\croco-blitz-source.zip'))
-    # lst = ['Колакал', 'малако']
-    # st: str = ''
-    # for elem in lst:
-    #     st += elem + ' '
-    # print(check_spell(st.strip()))
+    save(send_to_check(pars(extr_zip('src\croco-blitz-source.zip'))))
 
 
 if __name__ == "__main__":
