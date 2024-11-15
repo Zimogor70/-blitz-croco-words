@@ -3,6 +3,7 @@ import sqlite3
 
 def main():
     con = sqlite3.connect('words.db')  # соединение с базой или создание, если таковой нет
+    print(type(con))
     cur = con.cursor()  # получаем курсор базы
     # cur.execute('CREATE TABLE IF NOT EXISTS movie(title, year, score)')
     # res = cur.execute('SELECT name FROM sqlite_master') # get link on object classes of cursor
@@ -18,6 +19,10 @@ def main():
     # исполняем запрос на добавление записей из data
     cur.executemany("INSERT INTO movie VALUES(?, ?, ?)", data)
     con.commit()  # зафиксировать результаты транзакции в БД
+
+
+def add_data(con: sqlite3.Connection, t_name: str, d: {str, str}):
+    ...
 
 
 if __name__ == '__main__':
